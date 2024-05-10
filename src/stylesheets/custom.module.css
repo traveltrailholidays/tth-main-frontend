@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Reem+Kufi+Fun:wght@400..700&display=swap');
+
+.reem_kufi{
+    font-family: "Reem Kufi Fun";
+}
+
+.box_heading{
+    font-size: clamp(1.5rem, 6.5vw, 25px); 
+}
