@@ -10,6 +10,9 @@ import Modal from "@/components/Modal/Modal";
 import Footer from "@/components/Footer/Footer";
 
 import { Toaster } from "react-hot-toast";
+import ScrollToTop from "@/components/ui/ScrollToTop";
+
+import { WhatsAppSolid } from "@/assets/svgs/socialSvg";
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -41,6 +44,12 @@ export default function RootLayout({
           <Toaster/>
           <ClientOnly>
             {/* <Modal title="Hello world" isOpen/> */}
+            <div className=" fixed bottom-10 right-3 cursor-pointer flex flex-col gap-3 z-50">
+              <ScrollToTop/>
+              <a href={`https://api.whatsapp.com/send?phone=${process.env.WHATSAPP_NUMBER}`} target="_blank" rel="noopener noreferrer" className="">
+                <WhatsAppSolid height="2.5rem" width="2.5rem" fillColor="#FF5956" strokeWidth="0" strokeColor="currentColor"/>
+              </a>
+            </div>
             <Header/>
           </ClientOnly>
           {children}
