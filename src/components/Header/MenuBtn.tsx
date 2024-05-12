@@ -129,7 +129,7 @@ const MenuBtn = () => {
                 icon={FiInfo}
                 size={24}
                 href="/about"
-                text="About"
+                text="About US"
                 onClick={handleCloseModal}
                 classes="lg:hidden"
               />
@@ -138,7 +138,7 @@ const MenuBtn = () => {
                 icon={RiContactsBook3Line}
                 size={24}
                 href="/contact"
-                text="Contact"
+                text="Contact Us "
                 onClick={handleCloseModal}
                 classes="lg:hidden"
               />

@@ -8,6 +8,8 @@ import { IoIosMail, IoIosSend } from "react-icons/io";
 import { FaFacebook, FaLinkedinIn, FaInstagram } from "react-icons/fa";
 import {FaXTwitter} from 'react-icons/fa6';
 
+import { toast } from "react-hot-toast";
+
 import Link from "next/link";
 
 interface FormData {
@@ -30,7 +32,7 @@ const ContactForm: React.FC = () => {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     // Here you can handle form submission, for example, send data to your backend
-    console.log(formData);
+    
     // Reset form fields after submission
     setFormData({
       name: "",
@@ -50,7 +52,8 @@ const ContactForm: React.FC = () => {
       });
 
       if (response.ok) {
-        console.log("Form submitted successfully!");
+        // toaster
+        toast.success('Messaage sent successfully');
         // Reset form fields after submission
         setFormData({
           name: "",
