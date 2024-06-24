@@ -11,8 +11,6 @@ import Container from "@/components/ui/feature/Container";
 
 const Footer = () => {
 
-  const diwakarjha = process.env.DIWAKAR_JHA_LINK;
-
   return (
     <Section
       classes={`border-t-[1px] bg-background`}
@@ -134,18 +132,18 @@ const Footer = () => {
               <span className={`text-xl font-[500]`}>Legal</span>
             </div>
             <div className={`sm:p-3 flex flex-col gap-2 px-3 py-2`}>
-                <div className="flex items-center gap-1">
+                <Link href='/legal/privacy-policy' className="flex items-center gap-1">
                   <ArrowRightSolid height="0.7rem" width="0.7rem" fillColor="#cbd5e0" strokeWidth="0" strokeColor="currentColor"/>
                   <ActiveLink href="#" exact  classes={``} text="Privacy Policy"/>
-                </div>
-                <div className="flex items-center gap-1">
+                </Link>
+                <Link href='/legal/terms-condition' className="flex items-center gap-1">
                   <ArrowRightSolid height="0.7rem" width="0.7rem" fillColor="#cbd5e0" strokeWidth="0" strokeColor="currentColor"/>
                   <ActiveLink href="#" exact  classes={``} text="Terms & Condition"/>
-                </div>
-                <div className="flex items-center gap-1">
+                </Link>
+                <Link href='/legal/refund-cancellation-policy' className="flex items-center gap-1">
                   <ArrowRightSolid height="0.7rem" width="0.7rem" fillColor="#cbd5e0" strokeWidth="0" strokeColor="currentColor"/>
                   <ActiveLink href="#" exact  classes={``} text="Refund & Cancellation Policy"/>
-                </div>
+                </Link>
             </div>
           </div>
           <div className={`max-w-[410px]`}>
@@ -184,7 +182,7 @@ const Footer = () => {
         <div className={`pt-5 w-full flex justify-between md:pb-5 mb-5 md:mb-0 flex-col text-center md:flex-row items-center gap-2 border-t-[1px]`}>
           <span className={``}>Copyright © 2024 <Link href={`/`} className={`hover:underline`}>Travel Trail Holidays</Link>. All Rights Reserved.</span>
           <span className={``}>
-            <span>Designed with <span className={`text-custom-clp text-lg select-none`}>&#x2665;</span> by <Link href={diwakarjha!} target="_blank" className={`text-custom-clp hover:underline`}>iamdkjha</Link>.</span>
+            <span>Designed with <span className={`text-custom-clp text-lg select-none`}>&#x2665;</span> by <Link href={process.env.DIWAKAR_JHA_LINK!} target="_blank" className={`text-custom-clp hover:underline`}>iamdkjha</Link>.</span>
           </span>
         </div>
 
