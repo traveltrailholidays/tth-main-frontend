@@ -132,18 +132,18 @@ const Footer = () => {
               <span className={`text-xl font-[500]`}>Legal</span>
             </div>
             <div className={`sm:p-3 flex flex-col gap-2 px-3 py-2`}>
-                <div className="flex items-center gap-1">
+                <Link href='/legal/privacy-policy' className="flex items-center gap-1">
                   <ArrowRightSolid height="0.7rem" width="0.7rem" fillColor="#cbd5e0" strokeWidth="0" strokeColor="currentColor"/>
                   <ActiveLink href="#" exact  classes={``} text="Privacy Policy"/>
-                </div>
-                <div className="flex items-center gap-1">
+                </Link>
+                <Link href='/legal/terms-condition' className="flex items-center gap-1">
                   <ArrowRightSolid height="0.7rem" width="0.7rem" fillColor="#cbd5e0" strokeWidth="0" strokeColor="currentColor"/>
                   <ActiveLink href="#" exact  classes={``} text="Terms & Condition"/>
-                </div>
-                <div className="flex items-center gap-1">
+                </Link>
+                <Link href='/legal/refund-cancellation-policy' className="flex items-center gap-1">
                   <ArrowRightSolid height="0.7rem" width="0.7rem" fillColor="#cbd5e0" strokeWidth="0" strokeColor="currentColor"/>
                   <ActiveLink href="#" exact  classes={``} text="Refund & Cancellation Policy"/>
-                </div>
+                </Link>
             </div>
           </div>
           <div className={`max-w-[410px]`}>

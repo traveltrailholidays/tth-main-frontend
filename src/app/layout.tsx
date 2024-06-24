@@ -9,6 +9,7 @@ import Header from "@/components/Header/Header";
 import Modal from "@/components/Modal/Modal";
 import Footer from "@/components/Footer/Footer";
 
+import NextTopLoader from 'nextjs-toploader';
 import { Toaster } from "react-hot-toast";
 import ScrollToTop from "@/components/ui/ScrollToTop";
 
@@ -40,6 +41,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${poppins.className} bg-custom-sbl dark:bg-custom-sbd`}>
+        <NextTopLoader color="#FF5956" height={3} showSpinner={false}/>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <Toaster/>
           <ClientOnly>
