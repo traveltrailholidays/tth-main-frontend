@@ -1,40 +1,67 @@
-import mongoose, { Schema, Document } from 'mongoose';
+import mongoose, {Schema, Document} from "mongoose";
 
-export interface PackageData extends Document {
+export interface Package extends Document {
     title: string;
-    address: string;
-    photos: [string];
+    location: string;
+    photos: string[];
     description: string;
+    perks: string[];
+    price: number;
+    days: number;
+    nights: number;
+    category: string[];
+    itinary: string[];
     createdAt: Date;
-    updatedAt: Date;
 }
 
-const PackageSchema: Schema<PackageData> = new Schema({
+const PackageSchema: Schema<Package> = new Schema({
     title: {
         type: String,
-        required: [true, "Name is required."],
-        minlength: [2, "Name must be larger than 2 characters."],
-        maxlength: [50, "Name must be lesser than 50 characters."],
+        required: true
     },
-    address: {
+    location: {
         type: String,
+        required: true
     },
     photos: {
         type: [String],
+        required: true
     },
     description: {
         type: String,
+        required: true
+    },
+    perks: {
+        type: [String],
+        required: true
+    },
+    price: {
+        type: Number,
+        required: true
+    },
+    days: {
+        type: Number,
+        required: true
+    },
+    nights: {
+        type: Number,
+        required: true
+    },
+    category: {
+        type: [String],
+        required: true
+    },
+    itinary: {
+        type: [String],
+        required: true
     },
     createdAt: {
         type: Date,
-        default: Date.now
-    },
-    updatedAt: {
-        type: Date,
+        required: true,
         default: Date.now
     }
 });
 
-const PackageModel = mongoose.models.Package || mongoose.model<PackageData>('Package', PackageSchema);
+const PackageModel = (mongoose.models.Package as mongoose.Model<Package>) || mongoose.model<Package>("Package", PackageSchema)
 
 export default PackageModel;

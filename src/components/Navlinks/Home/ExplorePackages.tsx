@@ -1,31 +1,21 @@
-'use client';
+import React from 'react'
+import { CarTaxiFront, Clock3 } from 'lucide-react';
+import { Hotel } from 'lucide-react';
 import { FaBuilding, FaCarAlt } from 'react-icons/fa';
 import { FaMapLocationDot } from 'react-icons/fa6';
 import { GiForkKnifeSpoon } from 'react-icons/gi';
 import { IoTime } from 'react-icons/io5';
 
-interface CardProps {
-  locationName: string;
-  locationImg: string;
-  name: string;
-  desc: string;
+interface ExplorePackagesProps  {
+    name: string,
+    desc: string,
 }
 
-const  DestinationCard: React.FC<CardProps> = ({name,desc,locationName,locationImg})=> {
-  const truncatedDesc = desc.length > 100 ? `${desc.substring(0, 100)}.............` : desc;
+
+const ExplorePackages: React.FC<ExplorePackagesProps> = ({name,desc})=> {
+    const truncatedDesc = desc.length > 100 ? `${desc.substring(0, 100)}.............` : desc;
   return (
-    <>
-      {/* <div className="flex bg-custom-shl shadow-md rounded max-w-[350px] w-[90%] flex-col hover:scale-105 card_animation transition">
-        <img
-          src={props.locationImg}
-          alt=""
-          className="rounded-t select-none w-full h-60"
-        />
-        <div className="flex justify-center items-center p-3">
-          <span className="font-semibold text-xl">{props.locationName}</span>
-        </div>
-      </div> */}
-          <div className="w-full max-w-sm sm:max-w-xs bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+    <div className="w-full max-w-sm sm:max-w-xs bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
         <div className=" overflow-hidden  relative rounded-t-lg ">
           <a href="#" className="w-full  ">
             <img
@@ -116,9 +106,7 @@ const  DestinationCard: React.FC<CardProps> = ({name,desc,locationName,locationI
           </div>
         </div>
       </div>
-    </>
-  );
+  )
 }
 
-
-export default DestinationCard
+export default ExplorePackages
