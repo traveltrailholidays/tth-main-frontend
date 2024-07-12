@@ -1,18 +1,32 @@
 import mongoose, {Schema, Document} from "mongoose";
 
+
+export interface DayActivity {
+    activity: string;
+}
+
 export interface Package extends Document {
     title: string;
     location: string;
-    photos: string[];
+    imageUrls: string;
     description: string;
-    perks: string[];
-    price: number;
+    // perks: string[];
+    regularPrice: number;
+    discount:number;
     days: number;
     nights: number;
-    category: string[];
-    itinary: string[];
+    daysActivities: DayActivity[];
+    // category: string[];
+    // itinary: string[];
     createdAt: Date;
 }
+
+const DayActivitySchema: Schema = new Schema({
+    activity: {
+        type: String,
+        required: true
+    }
+});
 
 const PackageSchema: Schema<Package> = new Schema({
     title: {
@@ -23,20 +37,24 @@ const PackageSchema: Schema<Package> = new Schema({
         type: String,
         required: true
     },
-    photos: {
-        type: [String],
+    imageUrls: {
+        type: String,
         required: true
     },
     description: {
         type: String,
         required: true
     },
-    perks: {
-        type: [String],
+    // perks: {
+    //     type: [String],
+    //     required: true
+    // },
+    regularPrice: {
+        type: Number,
         required: true
     },
-    price: {
-        type: Number,
+    discount:{
+        type:Number,
         required: true
     },
     days: {
@@ -47,14 +65,18 @@ const PackageSchema: Schema<Package> = new Schema({
         type: Number,
         required: true
     },
-    category: {
-        type: [String],
+    daysActivities:{
+        type: [DayActivitySchema],
         required: true
     },
-    itinary: {
-        type: [String],
-        required: true
-    },
+    // category: {
+    //     type: [String],
+    //     required: true
+    // },
+    // itinary: {
+    //     type: [String],
+    //     required: true
+    // },
     createdAt: {
         type: Date,
         required: true,

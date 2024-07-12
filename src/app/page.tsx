@@ -8,7 +8,7 @@ const page = async () => {
     <main className='mt-16'>
       <HeroSection/>
       <DestinationSection/>
-      <CustomPackages/>
+      {/* <CustomPackages/> */}
     </main>
   )
 }
