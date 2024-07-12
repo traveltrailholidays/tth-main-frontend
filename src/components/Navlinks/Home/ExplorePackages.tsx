@@ -1,36 +1,39 @@
 'use client';
+
+import React from 'react'
+import { CarTaxiFront, Clock3 } from 'lucide-react';
+import { Hotel } from 'lucide-react';
 import { FaBuilding, FaCarAlt } from 'react-icons/fa';
 import { FaMapLocationDot } from 'react-icons/fa6';
 import { GiForkKnifeSpoon } from 'react-icons/gi';
 import { IoTime } from 'react-icons/io5';
+import Link from 'next/link';
 
-interface CardProps {
-  locationName: string;
-  locationImg: string;
-  name: string;
-  desc: string;
+interface ExplorePackagesProps  {
+    id:string,
+    title: string,
+    description: string,
+    days : number,
+    nights:number,
+    regularPrice : number,
+    discount:number,
+    imageUrls:string,
+    location:string,
+    daysActivities:[],
 }
 
-const  DestinationCard: React.FC<CardProps> = ({name,desc,locationName,locationImg})=> {
-  const truncatedDesc = desc.length > 100 ? `${desc.substring(0, 100)}.............` : desc;
+
+const ExplorePackages: React.FC<ExplorePackagesProps> = ({id,title,description,imageUrls,location,days,nights,daysActivities,regularPrice,discount})=> {
+    const truncatedDesc = description.length > 100 ? `${description.substring(0, 100)}.............` : description;
+    const Discounted = (discount/100)*regularPrice;
+    const totalDiscount = regularPrice-Discounted;
   return (
-    <>
-      {/* <div className="flex bg-custom-shl shadow-md rounded max-w-[350px] w-[90%] flex-col hover:scale-105 card_animation transition">
-        <img
-          src={props.locationImg}
-          alt=""
-          className="rounded-t select-none w-full h-60"
-        />
-        <div className="flex justify-center items-center p-3">
-          <span className="font-semibold text-xl">{props.locationName}</span>
-        </div>
-      </div> */}
-          <div className="w-full max-w-sm sm:max-w-xs bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+    <Link href={`/package/${id}`} className="max-w-[500px] w-[95%] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
         <div className=" overflow-hidden  relative rounded-t-lg ">
           <a href="#" className="w-full  ">
             <img
               className=" transition-all duration-700 ease-in-out hover:scale-110 object-cover overflow-hidden w-full rounded-t-lg"
-              src="https://static.vecteezy.com/system/resources/thumbnails/029/367/509/small/journey-unfolds-as-a-traveler-yellow-backpacked-embraces-mountain-beauty-ai-generated-photo.jpg"
+              src={imageUrls}
               alt="product image"
             />
           </a>
@@ -38,7 +41,7 @@ const  DestinationCard: React.FC<CardProps> = ({name,desc,locationName,locationI
         <div className="px-5 pb-5">
           <a href="#">
             <h1 className=" mt-2 text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
-              {name}
+              {title}
             </h1>
             <p className=' mt-2'> {truncatedDesc} </p>
           </a>
@@ -104,21 +107,19 @@ const  DestinationCard: React.FC<CardProps> = ({name,desc,locationName,locationI
 
           <div className="flex items-center justify-between">
             <span className=" flex gap-1 items-center text-md font-semibold text-gray-900 dark:text-white">
-              <IoTime /> 4 night/3 days
+              <IoTime /> {days} days /{nights} nights
             </span>
-            <span className="  flex gap-3 text-lg font-bold  dark:text-white ">
-              <span className=' text-red-500 line-through'>5999</span>
-              <span className=' text-green-500 '>4999</span>
+            <span className="  flex gap-2 text-lg font-bold  dark:text-white ">
+              <span className=' text-red-500 line-through'>{regularPrice}</span>
+              <span className=' text-green-500 '> {totalDiscount} </span>
             </span>
             {/* <a href="#" className="text-white bg-[#FF5956] p-3 rounded-lg">
               Continue
             </a> */}
           </div>
         </div>
-      </div>
-    </>
-  );
+      </Link>
+  )
 }
 
-
-export default DestinationCard
+export default ExplorePackages
