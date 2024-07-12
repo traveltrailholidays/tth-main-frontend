@@ -5,7 +5,7 @@ import { FaMapLocationDot } from "react-icons/fa6";
 import { GiForkKnifeSpoon } from "react-icons/gi";
 import { IoTime } from "react-icons/io5";
 import { useEffect, useState } from "react";
-import DestinationCard from "./DestinationCard";
+
 import ExplorePackages from "./ExplorePackages";
 
 
