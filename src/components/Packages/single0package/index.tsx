@@ -3,10 +3,11 @@
 import Container from '@/components/ui/feature/Container'
 import Section from '@/components/ui/feature/Section'
 import Image from 'next/image'
-import React from 'react'
+import React, { useState } from 'react'
 
 const SinglePackage = () => {
 
+    const [singlePackage,setSinglePackage] = useState({})
     
 
   return (
